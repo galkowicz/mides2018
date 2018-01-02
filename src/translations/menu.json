@@ -1,0 +1,18 @@
+{
+  "drinks": {
+    "coke": [
+      "קולה",
+      "coke"
+    ],
+    "spriביתte": [
+      "ספרייט",
+      "sprite"
+    ]
+  },
+  "deserts": {
+    "hotCake": [
+      "סופלה",
+      "sophle"
+    ]
+  }
+}
