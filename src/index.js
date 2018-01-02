@@ -4,11 +4,12 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { initialize, addTranslation } from 'react-localize-redux';
 import store, { history } from './store';
+import isMobile from 'ismobilejs';
 import './index.css';
 import App from './App';
 import 'font-awesome/css/font-awesome.min.css';
 import translations from './translations/index';
-import {GET_CONFIG} from './constants';
+import {SET_CONFIG} from './constants';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -18,7 +19,7 @@ const languages = [
 ];
 store.dispatch(initialize(languages));
 store.dispatch(addTranslation(translations));
-store.dispatch({type: GET_CONFIG});
+store.dispatch({type: SET_CONFIG, payload: isMobile});
 
 const target = document.querySelector('#root');
 

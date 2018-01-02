@@ -1,1 +1,1 @@
-export const GET_CONFIG = 'getConfig';
+export const SET_CONFIG = 'setConfig';

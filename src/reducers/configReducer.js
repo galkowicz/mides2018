@@ -1,10 +1,9 @@
-import {GET_CONFIG} from '../constants';
-import isMobile from 'ismobilejs';
+import {SET_CONFIG} from '../constants';
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
-        case GET_CONFIG: {
-            return Object.assign({}, state, isMobile);
+        case SET_CONFIG: {
+            return Object.assign({}, state, action.payload);
         }
 
         default:

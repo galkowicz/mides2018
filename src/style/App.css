@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Assistant");
+@font-face {
+  font-family: "gl-font";
+  src: url("./GveretLevinAlefAlefAlef-Regular.woff") format("woff"); }
+
+.mides-logo {
+  display: inline-block;
+  font-family: gl-font, serif;
+  font-size: 3.5rem;
+  padding: 1rem;
+  color: #e27d17;
+  float: left; }
+
+.c-mask {
+  left: 0; }
+
+.c-menu {
+  position: absolute;
+  transition: all .4s ease;
+  visibility: hidden;
+  padding: 0;
+  margin-top: 2rem;
+  width: 100vw;
+  overflow: hidden;
+  height: 0; }
+
+.menuClosed .icon-three-bars {
+  display: inline-block; }
+
+.menuOpen .menu-container {
+  display: block; }
+  .menuOpen .menu-container .c-menu--slide-top {
+    height: 26rem;
+    visibility: inherit; }
+
+.menu-container {
+  position: absolute; }
+
+.App {
+  text-align: center; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px; }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white; }
+
+.App-title {
+  font-size: 1.5em; }
+
+.App-intro {
+  font-size: large; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
