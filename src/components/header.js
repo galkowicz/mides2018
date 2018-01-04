@@ -5,6 +5,8 @@ import {getActiveLanguage, getLanguages, getTranslate, setActiveLanguage} from "
 import {push} from "react-router-redux";
 import {connect} from "react-redux";
 
+import { Icon } from 'semantic-ui-react'
+
 class AppMenu extends React.Component {
     constructor(props) {
         super(props);
@@ -17,16 +19,21 @@ class AppMenu extends React.Component {
         this.setState({isMenuOpen: !this.state.isMenuOpen});
     }
 
+    setLanguage(langCode) {
+        document.getElementsByTagName('html')[0].setAttribute('lang',langCode);
+        this.props.setActiveLanguage(langCode);
+    }
+
     render() {
-        const {translate, languages, setActiveLanguage} = this.props;
+        const {translate, languages} = this.props;
 
         return (
             <div className='header'>
                 <div key={1} className='mides-logo'><span>מידס</span></div>
-                <div key={2} className={this.state.isMenuOpen ? 'menuOpen' : 'menuClose'}>
+                <div key={2} className={this.state.isMenuOpen ? 'menu-icon open' : 'menu-icon close'}>
                     {this.state.isMenuOpen ?
-                        <i onClick={this.handleMenuIconClicked} className="fa fa-times" /> :
-                        <i onClick={this.handleMenuIconClicked} className='fa fa-bars' />}
+                        <Icon onClick={this.handleMenuIconClicked} name='close' size='big' /> :
+                        <Icon onClick={this.handleMenuIconClicked} name='bars' size='big' />}
                     <nav className='menu-container c-mask'>
                         <ul className='top-menu c-menu c-menu--slide-top'>
                             <li><Link to='/'>{translate('mainItems.home')}</Link></li>
@@ -34,7 +41,7 @@ class AppMenu extends React.Component {
                             <li><Link to='/menu'>{translate('mainItems.menu')}</Link></li>
                             {languages.map(language =>
                                 <li key={language.code}>
-                                    <button onClick={() => setActiveLanguage(language.code)}>{language.name}</button>
+                                    <button onClick={() => this.setLanguage(language.code)}>{language.name}</button>
                                 </li>
                             )}
                         </ul>
