@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {connect} from "react-redux";
+import {Container} from 'semantic-ui-react';
 import Home from './containers/home';
 import Menu from './containers/menu';
 import About from './containers/about';
@@ -12,11 +13,12 @@ class App extends Component {
     render() {
         return (<div className={this.props.currentLanguage}>
             <Header key={'header'}/>
-            <div key={'body'} className='body'>
+
+            <Container className='body'>
                 <Route exact path='/' component={Home}/>
                 <Route path='/about' component={About}/>
                 <Route path='/menu' component={Menu}/>
-            </div>
+            </Container>
         </div>);
     }
 }
@@ -24,7 +26,8 @@ class App extends Component {
 const mapStateToProps = state => ({
     translate: getTranslate(state.locale),
     currentLanguage: getActiveLanguage(state.locale).code,
-    languages: getLanguages(state.locale)
+    languages: getLanguages(state.locale),
+    routing: state.routing
 });
 
 export default connect(mapStateToProps)(App);
