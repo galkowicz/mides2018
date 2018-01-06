@@ -5,6 +5,10 @@
   src: url("./GveretLevinAlefAlefAlef-Regular.woff") format('woff');
 }
 
+html[lang="he"] .c-menu {
+  direction: rtl;
+}
+
 .item::before {
   content: none;
   width: 0!important;
