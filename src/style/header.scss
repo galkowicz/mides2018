@@ -14,6 +14,12 @@ html[lang="he"] .c-menu {
   width: 0!important;
 }
 
+.ui.menu {
+  .item {
+    line-height: 0.5rem!important;
+  }
+}
+
 .ui.segments {
   border: 0;
   position: static;
@@ -21,7 +27,8 @@ html[lang="he"] .c-menu {
 
 
 .menu-container {
-  top: 9rem!important;
+  position: absolute;
+  top: 5rem!important;
   right: 0;
 }
 
@@ -73,6 +80,74 @@ html[lang="he"] .c-menu {
   }
 }
 
-.menu-container {
-  position: absolute;
+
+.kind-of-black {
+  background: #333333;
+}
+
+.title-color {
+  color: #ae9a64;
+}
+
+.heb-menu .title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: flex-end;
+}
+.heb-menu .title h1 {
+  margin: 0;
+}
+.heb-menu .title {
+  padding-bottom: .2rem;
+}
+.heb-menu h2 {
+  direction: rtl;
+  color: #ae9a64;
+  border-bottom: 3px solid #adadad;
+  border-top: 3px solid #adadad;
+  padding: 1.5rem 0;
+  font-size: 2rem;
+}
+.item {
+  margin-bottom: 3rem;
+}
+.item .titledescription {
+  text-shadow: none;
+  letter-spacing: 2px;
+  direction: rtl;
+  color: #ae9a64;
+  margin: 0;
+}
+.item .title h3{
+  margin: 0;
+}
+.item .titledescription h3{
+  margin: 0;
+}
+.item .title {
+  letter-spacing: 2px;
+  direction: rtl;
+  color: #ae9a64;
+  margin: 0;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.item .price {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-family: 'Assistant', sans-serif;
+}
+.title.underline {
+  text-decoration: underline;
+  text-decoration-color: #ae9a64;
+}
+.price.drink {
+  float: left;
+  margin: 0;
+  font-size: 1rem;
+}
+.drinks .item {
+  margin-bottom: 0.5rem;
 }

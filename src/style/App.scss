@@ -1,5 +1,29 @@
 @import './header.scss';
 
 .body {
-  margin-top: 9rem;
+  margin-top: 5rem;
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
+.ui.container {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
+.food-menu {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  .title-main {
+    display: flex;
+    justify-content: flex-end;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  .titledescription {
+    letter-spacing: 2px;
+    direction: rtl;
+    color: #ae9a64;
+  }
 }

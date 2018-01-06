@@ -35,7 +35,7 @@ class AppMenu extends React.Component {
         return (
             <Menu fixed='top' >
                 <Container>
-                    <Menu.Item header>
+                    <Menu.Item header onClick={this.props.changePageHome}>
                         <div key={1} className='mides-logo'><span>מידס</span></div>
                     </Menu.Item>
                     <Menu.Item header position='right'
@@ -43,12 +43,14 @@ class AppMenu extends React.Component {
                         {this.state.isMenuOpen ?
                             <Icon onClick={this.handleMenuIconClicked} name='close' size='big'/> :
                             <Icon onClick={this.handleMenuIconClicked} name='bars' size='big'/>}
-                        <Menu.Menu className='menu-container c-mask'>
+                        <Menu.Menu className='menu-container'>
                             <Segment.Group className='c-menu c-menu--slide-top'>
                                 <Segment><Link onClick={this.closeMenu}
                                                to='/'>{translate('mainItems.home')}</Link></Segment>
                                 <Segment><Link onClick={this.closeMenu}
                                                to='/about'>{translate('mainItems.about')}</Link></Segment>
+                                <Segment><Link onClick={this.closeMenu}
+                                               to='/menu'>{translate('mainItems.menu')}</Link></Segment>
                                 <Segment
                                     onClick={() => this.setLanguage(languages[0].code)}>{languages[0].name}</Segment>
                                 <Segment
@@ -69,8 +71,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePageAbout: () => push('/about'),
-    changePageMenu: () => push('/menu'),
+    changePageHome: () => push('/'),
     setActiveLanguage
 }, dispatch);
 

@@ -11,10 +11,13 @@ import {getActiveLanguage, getLanguages, getTranslate} from "react-localize-redu
 
 class App extends Component {
     render() {
+        // TODO make this style work
+        const style = {marginLeft: '0!important', marginRight: '0'};
+
         return (<div className={this.props.currentLanguage}>
             <Header key={'header'}/>
 
-            <Container className='body'>
+            <Container className='body' style={style}>
                 <Route exact path='/' component={Home}/>
                 <Route path='/about' component={About}/>
                 <Route path='/menu' component={Menu}/>
