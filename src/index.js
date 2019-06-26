@@ -1,38 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import { initialize, addTranslation } from 'react-localize-redux';
-import store, { history } from './store';
+import { Router } from 'react-router-dom';
+import { LocalizeProvider } from 'react-localize-redux';
+import configureStore, { history } from './configureStore';
 import isMobile from 'ismobilejs';
 import './index.css';
 import App from './App';
 import 'font-awesome/css/font-awesome.min.css';
 import 'semantic-ui-css/semantic.min.css';
-import translations from './translations/index';
-import {SET_CONFIG} from './constants';
+import { SET_CONFIG } from './constants';
 
 import registerServiceWorker from './registerServiceWorker';
 
-const languages = [
-    { name: 'עברית', code: 'he' },
-    { name: 'English', code: 'en' }
-];
-store.dispatch(initialize(languages));
-store.dispatch(addTranslation(translations));
-store.dispatch({type: SET_CONFIG, payload: isMobile});
+const store = configureStore(/* provide initial state if any */);
+store.dispatch({ type: SET_CONFIG, payload: isMobile });
 
 const target = document.querySelector('#root');
 
 ReactDOM.render(
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <div>
-                <App />
-            </div>
-        </ConnectedRouter>
-    </Provider>,
-    target
+	<Provider store={store}>
+			<LocalizeProvider store={store}>
+					<Router history={history}>
+							<div>
+									<App/>
+							</div>
+					</Router>
+			</LocalizeProvider>
+	</Provider>,
+	target
 );
 
 registerServiceWorker();
