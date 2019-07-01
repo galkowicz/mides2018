@@ -3,20 +3,17 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getActiveLanguage, getLanguages, getTranslate, setActiveLanguage, withLocalize } from 'react-localize-redux';
 import { connect } from 'react-redux';
+import backgroundImage from '../assets/headerBack.jpg'
 
-import { Icon, Container, Menu, Segment } from 'semantic-ui-react';
+import { Container, Menu, Image } from 'semantic-ui-react';
+import HeaderItems from './headerItems';
 
 class AppMenu extends React.Component {
 		constructor(props) {
 				super(props);
-				this.handleMenuIconClicked = this.handleMenuIconClicked.bind(this);
+				this.onItemClick = this.onItemClick.bind(this);
 				this.closeMenu = this.closeMenu.bind(this);
 
-				this.state = { isMenuOpen: false };
-		}
-
-		handleMenuIconClicked() {
-				this.setState({ isMenuOpen: !this.state.isMenuOpen });
 		}
 
 		setLanguage(langCode) {
@@ -29,38 +26,27 @@ class AppMenu extends React.Component {
 				this.setState({ isMenuOpen: false });
 		}
 
-		render() {
-				const { translate, languages } = this.props;
+		onItemClick(event) {
+				if (event === 'en' || event === 'he') {
+						this.setLanguage(event);
+				}
+		}
 
-				return (
+		render() {
+				const { translate } = this.props;
+
+				return (<div>
 					<Menu fixed='top'>
-							<Container>
-									<Menu.Item header>
-											<Link to='/'>
-													<div className='mides-logo'><span>מידס</span></div>
-											</Link>
-									</Menu.Item>
-									<Menu.Item header position='right'
-									           className={this.state.isMenuOpen ? 'menu-icon open' : 'menu-icon close'}>
-											{this.state.isMenuOpen ?
-												<Icon onClick={this.handleMenuIconClicked} name='close' size='big'/> :
-												<Icon onClick={this.handleMenuIconClicked} name='bars' size='big'/>}
-											<Menu.Menu className='menu-container'>
-													<Segment.Group className='c-menu c-menu--slide-top'>
-															<Segment><Link onClick={this.closeMenu}
-															               to='/'>{translate('mainItems.home')}</Link></Segment>
-															<Segment><Link onClick={this.closeMenu}
-															               to='/about'>{translate('mainItems.about')}</Link></Segment>
-															<Segment><Link onClick={this.closeMenu}
-															               to='/menu'>{translate('mainItems.menu')}</Link></Segment>
-															<Segment onClick={() => this.setLanguage(languages[0].code)}>{languages[0].name}</Segment>
-															<Segment onClick={() => this.setLanguage(languages[1].code)}>{languages[1].name}</Segment>
-													</Segment.Group>
-											</Menu.Menu>
-									</Menu.Item>
+							<Container className='header'>
+									<Menu.Item className='header__logo'><Link to='/'>
+											<div className='mides-logo'><span>מידס</span></div>
+									</Link> </Menu.Item>
+									<Menu.Item className='header__menu'><HeaderItems translate={translate}
+									                                                 handleItemClick={this.onItemClick}/></Menu.Item>
 							</Container>
 					</Menu>
-				);
+					<Image src={backgroundImage} size='massive' />
+				</div>);
 		}
 }
 
