@@ -1,4 +1,10 @@
-const mainItems = require('./mainItems');
-const menu = require('./menu');
+import flamelink from '../utils/flamelinkApp';
 
-export default {mainItems, menu};
+const mainItems = require('./mainItems');
+
+
+export function getFirebaseContent(schemaKey) {
+		return flamelink.content.get({ schemaKey });
+}
+
+export default { mainItems };

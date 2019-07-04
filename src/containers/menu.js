@@ -1,111 +1,40 @@
 import React from "react";
+import { connect } from 'react-redux';
+import MenuItem from '../components/menuItem';
 import { Translate } from 'react-localize-redux';
 
-class Menu extends React.Component {
+class Menu extends React.PureComponent {
+		static createMenuItems(items, prefix) {
+				return Object.entries(items).map((item, index) => {
+						const name = `${prefix}.${item[0]}.name`;
+						const description = `${prefix}.${item[0]}.description`;
+
+						return <MenuItem name={name} description={description} price={item[1].price} key={index}/>;
+				});
+		}
+
 		render() {
-				const { translate } = this.props;
+				const { translations } = this.props;
+
+				const brazilian = translations.brazilian && Menu.createMenuItems(translations.brazilian, 'brazilian');
+				const starters = translations.starters && Menu.createMenuItems(translations.starters, 'starters');
 
 				return (<div className='kind-of-black food-menu'>
 						<div className="title-main kind-of-black"><h1 className="title-color">תפריט</h1></div>
-						<div className="titledescription"><h2>מנות ראשונות וסלטים</h2></div>
+
+						<div className="titledescription"><h2><Translate id={'mainItems.startersTitle'}/></h2></div>
 						<div className="subcategory">
-
-								<div className="item">
-										<div className="title"><h3><Translate id="menu.starters.soup.name"/></h3></div>
-										<div className="titledescription">
-												<div className="price">{translate('menu.starters.soup.price')}₪</div>
-										</div>
-								</div>
-								<div className="item">
-										<div className="title"><h3>{translate('menu.starters.liver.name')}</h3></div>
-										<div className="titledescription">
-												<h3>{translate('menu.starters.liver.description')}</h3>
-												<div className="price">{translate('menu.starters.liver.price')}₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>{translate('menu.starters.mushrooms.name')}</h3></div>
-										<div className="titledescription">
-												<h3>{translate('menu.starters.mushrooms.description')}</h3>
-												<div className="price">{translate('menu.starters.mushrooms.price')}₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>שריפס בטמפורה</h3></div>
-										<div className="titledescription">
-												<h3>על מצע עליי חסה קריספי מלווים ברוטב אוליו עירית וצ'ילי מתוק</h3>
-												<div className="price">47₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>סלט קיסר</h3></div>
-										<div className="titledescription">
-												<h3>עלים של חסה ערבית, רוטב קיסר, קרוטונים, פרמזן ונתחי עוף</h3>
-												<div className="price">48₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>סלט כפרי</h3></div>
-										<div className="titledescription">
-												<h3>גבינת צאן מטוגנת, עלים ירוקים, גרעיני חמניות, מלפפונים ועגבניות וצ'יפס בטטה בויניגרט</h3>
-												<div className="price">47₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>סלט פטריות (חם קר) </h3></div>
-										<div className="titledescription">
-												<h3>על מצע עלי חסה ברוטב חרדל וסילן, שמפניון ופורטובלו חמות מוקפצות בליווי סומסום ובצל</h3>
-												<div className="price">47₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>חציל בלאדי על אש פתוחה</h3></div>
-										<div className="titledescription">
-												<h3>חציל קלוי בגריל מוגש עם טחינה ירוקה, קוביות עגבניות ושמן זית . בליווי לחם הבית</h3>
-												<div className="price">45₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>לחם הבית</h3></div>
-										<div className="titledescription">
-												<h3>נאפה במקום, מוגש עם חמאה וטפנד זיתים</h3>
-												<div className="price">16₪</div>
-										</div>
-								</div>
-
+								{starters && starters.map(item => item)}
 						</div>
 
-						<div className="titledescription"><h2>בשרים וברזילאי במידס</h2></div>
+						<div className="titledescription"><h2><Translate id={'mainItems.brazilianTitle'}/></h2></div>
 						<div className="subcategory">
 
 								<div className="item">
 										<div className="title underline"><h3>מנות ראשונות</h3></div>
 								</div>
 
-
-								<div className="item">
-										<div className="title"><h3>
-												(Coxinha de Galinha ) קושייה דה גלייה</h3></div>
-										<div className="titledescription">
-												<h3>כדורי עוף במעטפת פריכה, מטוגנים בשמן עמוק, מהמטבח הברזילאי</h3>
-												<div className="price">49₪</div>
-										</div>
-								</div>
-
-								<div className="item">
-										<div className="title"><h3>(pao de queijo) ביס גבינה</h3></div>
-										<div className="titledescription">
-												<h3>סלסלת לחמניות ביס גבינה קטנות מהמטבח הברזילאי מוגש בתוספת ממרח פלפלים וחמאה</h3>
-												<div className="price">48₪</div>
-										</div>
-								</div>
+								{brazilian && brazilian.map(item => item)}
 
 								<div className="item">
 										<div className="title underline"><h3>מנות עיקריות</h3></div>
@@ -568,4 +497,10 @@ class Menu extends React.Component {
 		}
 }
 
-export default Menu;
+const mapStateToProps = state => ({
+		translations: state.translations
+});
+
+export default connect(
+	mapStateToProps
+)(Menu);

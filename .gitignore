@@ -22,3 +22,5 @@ yarn-error.log*
 .idea/
 src/style/header.css
 src/style/App.css
+
+/src/utils/firebaseConfig.js

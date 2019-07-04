@@ -10,7 +10,11 @@ import Header from './components/header';
 import './style/App.css';
 import { getActiveLanguage, getLanguages, getTranslate } from "react-localize-redux/lib/index";
 import { withLocalize } from 'react-localize-redux';
-import translations from './translations/index';
+import translations, { getFirebaseContent } from './translations/index';
+import { parseMenuContent } from './utils/contentParser';
+import { bindActionCreators } from 'redux';
+import { setTranslation } from "./reducers/translationsReducer";
+import { STARTERS_ID, BRAZILIAN_ID } from './constants';
 
 class App extends Component {
 		constructor(props) {
@@ -27,18 +31,30 @@ class App extends Component {
 						}
 				});
 
-				this.props.addTranslation(translations);
+		}
+
+		componentDidMount() {
+				getFirebaseContent('menuStarters')
+					.then((content) => {
+							const parsedStarters = parseMenuContent(content[STARTERS_ID]);
+							const parsedBrazilian = parseMenuContent(content[BRAZILIAN_ID]);
+
+							const parsedTranslations = {starters: parsedStarters, brazilian: parsedBrazilian};
+							Object.assign(translations, parsedTranslations);
+							this.props.setTranslation(parsedTranslations);
+							this.props.addTranslation(translations);
+					}).catch((error) => {
+						console.error(error);
+				});
 		}
 
 		render() {
-				// TODO make this style work
-				const style = { marginLeft: '0!important', marginRight: '0' };
 				const { translate, currentLanguage } = this.props;
 
 				return (<div className={currentLanguage}>
 						<Header key={'header'}/>
 
-						<Container className='body' style={style}>
+						<Container className='body'>
 								<Switch>
 										<Route exact path='/' component={Home}/>
 										<Route path='/about' component={About}/>
@@ -58,4 +74,8 @@ const mapStateToProps = state => ({
 		router: state.router
 });
 
-export default connect(mapStateToProps)(withLocalize(App));
+const mapDispatchToProps = dispatch => bindActionCreators({
+		setTranslation
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(withLocalize(App));

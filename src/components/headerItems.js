@@ -41,4 +41,4 @@ HeaderItems.defaultProps = {
 		}
 };
 
-export default HeaderItems;
+export default React.memo(HeaderItems);

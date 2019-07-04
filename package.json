@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^6.2.4",
+    "flamelink": "^1.0.0-alpha.19",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "ismobilejs": "^0.4.1",
