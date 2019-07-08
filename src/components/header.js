@@ -35,7 +35,7 @@ class AppMenu extends React.Component {
 		render() {
 				const { translate } = this.props;
 
-				return (<div>
+				return (<React.Fragment>
 					<Menu fixed='top'>
 							<Container className='header'>
 									<Menu.Item className='header__logo'><Link to='/'>
@@ -46,7 +46,7 @@ class AppMenu extends React.Component {
 							</Container>
 					</Menu>
 					<Image src={backgroundImage} size='massive' />
-				</div>);
+				</React.Fragment>);
 		}
 }
 

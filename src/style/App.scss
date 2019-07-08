@@ -1,22 +1,11 @@
+@import './mixins.scss';
 @import './header.scss';
+@import './foodMenu.scss';
 
 .body {
   margin-top: 1rem;
 }
 
-.food-menu {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  .title-main {
-    display: flex;
-    justify-content: flex-end;
-    h1 {
-      font-size: 4rem;
-    }
-  }
-  .titledescription {
-    letter-spacing: 2px;
-    direction: rtl;
-    color: #ae9a64;
-  }
+#root {
+  background-color: $black;
 }

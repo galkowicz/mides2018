@@ -18,5 +18,37 @@
   "brazilianTitle": [
     "בשרים וברזילאי",
     "meat and brazilian"
+  ],
+  "mainCourses": [
+    "מנות עיקריות",
+    "main courses"
+  ],
+  "fishAndPasta": [
+    "דגים, פירות ים ופסטות",
+    "fish and pasta"
+  ],
+  "desserts": [
+    "מתוקים",
+    "desserts"
+  ],
+  "brazilianDrinks": [
+    "משקאות ברזילאים",
+    "brazilian drinks"
+  ],
+  "beers": [
+    "בירות",
+    "beers"
+  ],
+  "softDrinks": [
+    "שתייה קלה",
+    "soft drinks"
+  ],
+  "hotDrinks": [
+    "שתייה חמה",
+    "hot drinks"
+  ],
+  "drinks": [
+    "שתייה",
+    "drinks"
   ]
 }

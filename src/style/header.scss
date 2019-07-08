@@ -23,8 +23,9 @@ html[lang="he"] .c-menu {
   justify-content: space-between;
 
   &__logo.header__logo.header__logo.header__logo {
-    border-left: none;
+    border-left: none !important;
     position: static;
+    margin-right: 4rem;
   }
 
   &__menu.header__menu.header__menu.header__menu {
