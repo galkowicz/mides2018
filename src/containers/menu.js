@@ -70,16 +70,16 @@ class Menu extends React.PureComponent {
 						<div className='title-description'><h2 className='text'><Translate id={'mainItems.drinks'}/></h2></div>
 						<div className='subcategory drinks'>
 
-								<div className='subcategory_category'><Translate id={'mainItems.brazilianDrinks'}/></div>
+								<div className='subcategory__category'><Translate id={'mainItems.brazilianDrinks'}/></div>
 								{brazilianDrinks && brazilianDrinks.map(item => item)}
 
-								<div className='subcategory_category'><Translate id={'mainItems.softDrinks'}/></div>
+								<div className='subcategory__category'><Translate id={'mainItems.softDrinks'}/></div>
 								{coldDrinks && coldDrinks.map(item => item)}
 
-								<div className='subcategory_category'><Translate id={'mainItems.beers'}/></div>
+								<div className='subcategory__category'><Translate id={'mainItems.beers'}/></div>
 								{beers && beers.map(item => item)}
 
-								<div className='subcategory_category'><Translate id={'mainItems.hotDrinks'}/></div>
+								<div className='subcategory__category'><Translate id={'mainItems.hotDrinks'}/></div>
 								{hotDrinks && hotDrinks.map(item => item)}
 
 						</div>
