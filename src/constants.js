@@ -10,3 +10,7 @@ export const HOT_DRINKS = '5MIcmLHYs5XwRUp9cmMM';
 export const BRAZILIAN_DRINKS = 'RpaQkJfMSjA5SRC3xnyM';
 export const BEERS_DRINKS = 'DkLYYsyu5ogP3T5XawTD';
 export const DESSERTS_FOOD = 'LeqQfTn075pkIqRTNNAf';
+
+
+export const LINKS = 'dKfnWERkO0Co3cUeLkqQ';
+export const SOCIAL_LINKS = 'field_1562768609251';
