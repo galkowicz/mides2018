@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { getActiveLanguage, getLanguages, getTranslate, setActiveLanguage, withLocalize } from 'react-localize-redux';
 import { connect } from 'react-redux';
 import backgroundImage from '../assets/headerBack.jpg';
 
-import { Container, Menu, Image } from 'semantic-ui-react';
+import { Container, Menu, Image, Icon } from 'semantic-ui-react';
 import HeaderItems from './headerItems';
 import { getFirebaseContent } from "../translations";
 import { LINKS, SOCIAL_LINKS } from '../constants';
@@ -48,16 +47,18 @@ class AppMenu extends React.Component {
 				const { socialLinks } = this.state;
 
 				return (<React.Fragment>
-						<Menu fixed='top'>
+						<Menu fixed='top' className='fixed-menu' secondary>
 								<Container className='header'>
-										<Menu.Item className='header__logo'><Link to='/'>
-												<div className='mides-logo'><span>מידס</span></div>
-										</Link> </Menu.Item>
+										<Menu.Item><Icon name='globe' size='large' className='language-icon' /></Menu.Item>
 										<Menu.Item><SocialBanner links={socialLinks} /></Menu.Item>
 										<Menu.Item className='header__menu'><HeaderItems translate={translate}
 										                                                 handleItemClick={this.onItemClick}/></Menu.Item>
 								</Container>
 						</Menu>
+						<div className='header__logo'>
+								<div className='mides-logo'><span>מידס</span></div>
+								<div className='mides-sublogo'><span>מסעדה ברזילאית</span></div>
+						</div>
 						<Image src={backgroundImage} size='massive'/>
 				</React.Fragment>);
 		}
@@ -74,5 +75,3 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(withLocalize(AppMenu));
-
-// export default AppMenu;

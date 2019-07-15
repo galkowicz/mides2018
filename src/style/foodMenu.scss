@@ -22,9 +22,6 @@
     .title {
       float: right;
       width: 94%;
-      @include respond-to(mobile) {
-        width: 90%;
-      }
       overflow: hidden;
       white-space: nowrap;
       text-transform: capitalize;
@@ -45,16 +42,27 @@
       &__text {
         font-size: 1.5rem;
       }
+
+      @include respond-to(mobile) {
+        width: 87%;
+        &__text {
+          font-size: 1rem;
+        }
+      }
     }
 
     .title:lang(en) {
       float: left;
     }
+
+    @include respond-to(mobile) {
+      margin-top: 3rem;
+    }
   }
 
   .title-description {
     letter-spacing: 2px;
-    padding: 1rem 0;
+    padding: 0.5rem 0 1rem;
     border-top: 2px solid $grey;
     border-bottom: 2px solid $grey;
     margin-bottom: 2rem;
@@ -68,6 +76,9 @@
   .titledescription {
     &__text {
       font-weight: 100;
+      @include respond-to(mobile) {
+        font-size: 1rem;
+      }
 
       &:lang(he) {
         float: right;
