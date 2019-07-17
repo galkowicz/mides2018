@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Menu } from "semantic-ui-react";
+import { Icon, Menu } from 'semantic-ui-react';
 
 const SocialBanner = (props) => {
 		const { links = [] } = props;

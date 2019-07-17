@@ -11,8 +11,7 @@
 }
 
 .header {
-  height: 4rem;
-  //justify-content: space-between;
+  height: 5rem;
 
   &__logo.header__logo.header__logo.header__logo {
     border-left: none !important;
@@ -29,6 +28,7 @@
       -webkit-text-stroke-width: .5px;
       -webkit-text-stroke-color: black;
     }
+
     .mides-sublogo {
       color: #e27d17;
       text-align: center;
@@ -54,37 +54,44 @@
     }
   }
 
-  .social-banner {
-    display: flex;
-    @include respond-to(desktop) {
-      position: fixed;
-      right: -10px;
-      top: 20rem;
-      flex-direction: column;
-      .item.item {
-        padding: 5px 0;
+  &__social.header__social.header__social.header__social.header__social {
+    padding: 0;
+
+    .social-banner {
+      display: flex;
+      font-size: 1rem;
+      @include respond-to(desktop) {
+        position: fixed;
+        right: -10px;
+        top: 20rem;
+        flex-direction: column;
+        .item.item {
+          padding: 5px 0;
+        }
       }
+
+      &__link.social-banner__link.social-banner__link.social-banner__link {
+        padding: .3rem;
+        margin: 0;
+      }
+
       &__icon {
         color: $logo-orange;
-      }
-    }
-
-    &__link.social-banner__link.social-banner__link.social-banner__link{
-      padding: 0;
-      margin: 0;
-    }
-    &__icon {
-      color: black;
-    }
-
-    .item.item {
-
-      &:before {
-        content: none;
+        @include respond-to(nodesktop) {
+          color: black;
+        }
       }
 
-    }
+      .item.item {
 
+        &:before {
+          content: none;
+        }
+
+      }
+
+
+    }
 
   }
 
@@ -96,13 +103,27 @@
       display: flex;
       float: right;
       flex-direction: row;
-      //justify-content: space-between;
       width: 100%;
       border: none;
       box-shadow: none;
+      text-transform: uppercase;
 
       .segment {
         border-top: none;
+        background-color: $light-gold;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding: 0 1.5rem;
+        letter-spacing: 4px;
+
+        a {
+          color: black;
+          transition: .3s;
+
+          &:hover {
+            color: white;
+          }
+        }
       }
     }
 
@@ -119,6 +140,7 @@
         transition: height .25s ease-out;
         height: 0;
         border: none;
+        margin-top: 0;
 
         .item {
           width: 100vw;
@@ -129,6 +151,10 @@
           max-height: 280px;
           height: 280px;
         }
+
+        .waze-link {
+          color: white;
+        }
       }
 
       .icon {
@@ -138,6 +164,7 @@
           display: none;
         }
       }
+
       .bars {
         background-color: $light-gold;
       }
@@ -152,6 +179,13 @@
           background-color: $light-gold;
         }
       }
+    }
+  }
+
+  &__language.header__language.header__language.header__language.header__language {
+    padding-right: 0;
+    .dropdown.floating.icon.ui {
+      margin-right: 0;
     }
   }
 }

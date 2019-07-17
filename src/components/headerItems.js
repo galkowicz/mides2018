@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Mobile, Default } from '../style/mediaQueries';
 
 const HeaderItems = withRouter(({ history, ...props }) => {
-		const { translate, handleItemClick } = props;
+		const { translate } = props;
 		const dropdownTriggerElement = <div>
 				<Icon name='close' size='big'/>
 				<Icon name='bars' size='big'/></div>;
@@ -13,14 +13,9 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 			<Menu.Menu>
 					<Default>
 							<Segment.Group>
-									<Segment><Link onClick={() => handleItemClick('home')}
-									               to='/'>{translate('mainItems.home')}</Link></Segment>
-									<Segment><Link onClick={() => handleItemClick('about')}
-									               to='/about'>{translate('mainItems.about')}</Link></Segment>
-									<Segment><Link onClick={() => handleItemClick('menu')}
-									               to='/menu'>{translate('mainItems.menu')}</Link></Segment>
-									<Segment onClick={() => handleItemClick('he')}>עברית</Segment>
-									<Segment onClick={() => handleItemClick('en')}>English</Segment>
+									<Segment><Link to='/'>{translate('mainItems.home')}</Link></Segment>
+									<Segment><Link to='/about'>{translate('mainItems.about')}</Link></Segment>
+									<Segment><Link to='/menu'>{translate('mainItems.menu')}</Link></Segment>
 							</Segment.Group>
 					</Default>
 					<Mobile>
@@ -31,17 +26,12 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 												onClick={() => history.push('/about')}> {translate('mainItems.about')} </Dropdown.Item>
 											<Dropdown.Item
 												onClick={() => history.push('/menu')}> {translate('mainItems.menu')} </Dropdown.Item>
-											<Dropdown.Item><Segment onClick={() => handleItemClick('he')}>עברית</Segment></Dropdown.Item>
-											<Dropdown.Item><Segment onClick={() => handleItemClick('en')}>English</Segment></Dropdown.Item>
+											<Dropdown.Item><a href='https://waze.com/ul/hsv8es2dhq' target='_blank' rel='noopener noreferrer'
+											                  className='waze-link'>WAZE</a></Dropdown.Item>
 									</Dropdown.Menu>
 							</Dropdown>
 					</Mobile>
 			</Menu.Menu>);
 });
-
-HeaderItems.defaultProps = {
-		handleItemClick: () => {
-		}
-};
 
 export default React.memo(HeaderItems);

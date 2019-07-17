@@ -4,7 +4,7 @@ import { getActiveLanguage, getLanguages, getTranslate, setActiveLanguage, withL
 import { connect } from 'react-redux';
 import backgroundImage from '../assets/headerBack.jpg';
 
-import { Container, Menu, Image, Icon } from 'semantic-ui-react';
+import { Container, Menu, Image, Icon, Dropdown } from 'semantic-ui-react';
 import HeaderItems from './headerItems';
 import { getFirebaseContent } from "../translations";
 import { LINKS, SOCIAL_LINKS } from '../constants';
@@ -13,7 +13,7 @@ import SocialBanner from './socialBanner';
 class AppMenu extends React.Component {
 		constructor(props) {
 				super(props);
-				this.onItemClick = this.onItemClick.bind(this);
+				this.onDropdownChange = this.onDropdownChange.bind(this);
 				this.closeMenu = this.closeMenu.bind(this);
 				this.state = { socialLinks: { facebook: '', instagram: '' } }
 
@@ -36,9 +36,9 @@ class AppMenu extends React.Component {
 				this.setState({ isMenuOpen: false });
 		}
 
-		onItemClick(event) {
-				if (event === 'en' || event === 'he') {
-						this.setLanguage(event);
+		onDropdownChange(event, data = {}) {
+				if (data.value === 'en' || data.value === 'he') {
+						this.setLanguage(data.value);
 				}
 		}
 
@@ -49,10 +49,17 @@ class AppMenu extends React.Component {
 				return (<React.Fragment>
 						<Menu fixed='top' className='fixed-menu' secondary>
 								<Container className='header'>
-										<Menu.Item><Icon name='globe' size='large' className='language-icon' /></Menu.Item>
-										<Menu.Item><SocialBanner links={socialLinks} /></Menu.Item>
-										<Menu.Item className='header__menu'><HeaderItems translate={translate}
-										                                                 handleItemClick={this.onItemClick}/></Menu.Item>
+										<Menu.Item className='header__language'>
+												<Dropdown
+													className='icon'
+													floating
+													icon={null}
+													onChange={this.onDropdownChange}
+													options={[{key: 'hebrew', text:'עברית', value: 'he'}, {key: 'english', text: 'English', value:'en'}]}
+													trigger={<Icon name='globe' size='large' className='language-icon'/>} />
+										</Menu.Item>
+										<Menu.Item className='header__social'><SocialBanner links={socialLinks}/></Menu.Item>
+										<Menu.Item className='header__menu'><HeaderItems translate={translate}/></Menu.Item>
 								</Container>
 						</Menu>
 						<div className='header__logo'>
