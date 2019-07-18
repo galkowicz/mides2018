@@ -140,20 +140,30 @@
         transition: height .25s ease-out;
         height: 0;
         border: none;
+        border-radius: 0 0 1rem 1rem;
         margin-top: 0;
+        background-color: $black;
 
-        .item {
+        &__item.menu__item.menu__item.item {
           width: 100vw;
           text-align: center;
+          color: white !important;
+          text-transform: uppercase !important;
+          letter-spacing: 3px;
+
+          a {
+            color: white;
+          }
+
+          .phone-link {
+            padding-left: 8px;
+          }
         }
 
         &.transition.visible {
-          max-height: 280px;
-          height: 280px;
-        }
-
-        .waze-link {
-          color: white;
+          border: solid $light-gold;
+          max-height: 290px;
+          height: 290px;
         }
       }
 
@@ -184,6 +194,7 @@
 
   &__language.header__language.header__language.header__language.header__language {
     padding-right: 0;
+
     .dropdown.floating.icon.ui {
       margin-right: 0;
     }

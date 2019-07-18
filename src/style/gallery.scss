@@ -1,0 +1,18 @@
+@import './mixins.scss';
+
+.gallery {
+  padding-top: 2rem;
+
+  &__header.gallery__header.gallery__header {
+    text-transform: uppercase;
+    color: $light-gold;
+    letter-spacing: 4px;
+  }
+}
+
+// TODO temp styling
+.long-div {
+  width: 8rem;
+  height: 80rem;
+  border: dotted red;
+}

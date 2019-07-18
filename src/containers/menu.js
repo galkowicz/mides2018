@@ -4,6 +4,10 @@ import MenuItem from '../components/menuItem';
 import { Translate } from 'react-localize-redux';
 
 class Menu extends React.PureComponent {
+		componentDidMount() {
+				window.scrollTo(0, 0);
+		}
+
 		createMenuItems(items, prefix) {
 				const { translate } = this.props;
 
