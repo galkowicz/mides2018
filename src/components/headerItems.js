@@ -14,6 +14,7 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 				<Icon name='bars' size='big'/></div>;
 
 		const scrollEve = (el) => {
+				window.scrollTo(0, 0);
 				setTimeout(() => {
 						const headerOffset = 45;
 						const elementPosition = el.getBoundingClientRect().top;
@@ -34,24 +35,28 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 									<Segment><Link to='/'>{translate('mainItems.home')}</Link></Segment>
 									<Segment><Link to='/about'>{translate('mainItems.about')}</Link></Segment>
 									<Segment><Link to='/menu'>{translate('mainItems.menu')}</Link></Segment>
-									<Segment><HashLink smooth scroll={scrollEve} to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Segment>
+									<Segment><HashLink smooth scroll={scrollEve}
+									                   to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Segment>
 							</Segment.Group>
 					</Default>
 					<Mobile>
 							<Dropdown item trigger={dropdownTriggerElement} icon={null}>
 									<Dropdown.Menu button='true' item='true'>
 											<Dropdown.Item className='menu__item'
-												onClick={() => history.push('/')}> {translate('mainItems.home')} </Dropdown.Item>
+											               onClick={() => history.push('/')}> {translate('mainItems.home')} </Dropdown.Item>
 											<Dropdown.Item className='menu__item'
-												onClick={() => history.push('/about')}> {translate('mainItems.about')} </Dropdown.Item>
+											               onClick={() => history.push('/about')}> {translate('mainItems.about')} </Dropdown.Item>
 											<Dropdown.Item className='menu__item'
-												onClick={() => history.push('/menu')}> {translate('mainItems.menu')} </Dropdown.Item>
-											<Dropdown.Item className='menu__item'> <HashLink smooth scroll={scrollEve} to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Dropdown.Item>
-											<Dropdown.Item className='menu__item'><a href='https://waze.com/ul/hsv8es2dhq' target='_blank' rel='noopener noreferrer'
-											                  className='waze-link'>WAZE</a> <FontAwesomeIcon
+											               onClick={() => history.push('/menu')}> {translate('mainItems.menu')} </Dropdown.Item>
+											<Dropdown.Item className='menu__item zero-padding' > <HashLink smooth scroll={scrollEve}
+											                                                 to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Dropdown.Item>
+											<Dropdown.Item className='menu__item zero-padding'><a href='https://waze.com/ul/hsv8es2dhq' target='_blank'
+											                                         rel='noopener noreferrer'
+											                                         className='waze-link'>WAZE</a> <FontAwesomeIcon
 												className='social-banner__icon' icon={faWaze}/></Dropdown.Item>
-											<Dropdown.Item className='menu__item'><a href='tel:086803441' target='_blank' rel='noopener noreferrer'
-											                  className='phone-link'>{translate('mainItems.call')}</a>
+											<Dropdown.Item className='menu__item zero-padding'><a href='tel:086803441' target='_blank'
+											                                         rel='noopener noreferrer'
+											                                         className='phone-link'>{translate('mainItems.call')}</a>
 													<FontAwesomeIcon
 														className='social-banner__icon' icon={faPhone}/>
 											</Dropdown.Item>

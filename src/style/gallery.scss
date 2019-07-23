@@ -2,17 +2,110 @@
 
 .gallery {
   padding-top: 2rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 
   &__header.gallery__header.gallery__header {
     text-transform: uppercase;
     color: $light-gold;
     letter-spacing: 4px;
   }
-}
 
-// TODO temp styling
-.long-div {
-  width: 8rem;
-  height: 80rem;
-  border: dotted red;
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__img {
+      flex: 0 0 20%;
+      position: relative;
+      cursor: pointer;
+      @include respond-to(mobile) {
+        flex: 0 0 100%;
+        margin: 6px 0;
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+
+      img {
+        position: absolute !important;
+        top: 50%;
+        left: 50%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__fullscreen {
+    display: none;
+
+    &.show {
+      display: block;
+      position: fixed;
+      width: 102%;
+      height: 100%;
+      z-index: 101;
+      top: 0;
+      background-color: $black;
+    }
+
+    &__header {
+      padding: 4rem;
+      font-size: 2rem;
+
+      i {
+        cursor: pointer;
+        float: right;
+      }
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 4rem;
+        position: absolute;
+        top: 27rem;
+        z-index: 1;
+      }
+
+      .img {
+        position: absolute;
+        top: 15rem;
+        left: 0;
+        right: 0;
+        padding: 0 3rem;
+        width: 60rem;
+        height: 40rem;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      .arrow {
+        cursor: pointer;
+        font-size: 7rem;
+        padding: 1rem;
+
+        &.hidden {
+          visibility: hidden;
+        }
+      }
+    }
+  }
 }

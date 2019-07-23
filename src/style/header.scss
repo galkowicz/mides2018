@@ -153,6 +153,14 @@
 
           a {
             color: white;
+            display: block;
+            padding: 1rem;
+          }
+
+          svg {
+            position: absolute;
+            top: 1rem;
+            left: 40%;
           }
 
           .phone-link {

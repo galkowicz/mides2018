@@ -1,5 +1,5 @@
-export const SET_CONFIG = 'setConfig';
 export const SET_TRANSLATION = 'setTranslation';
+export const DESKTOP_MIN_WIDTH = 576;
 
 export const STARTERS_F00D = 'jExPSa422YpbgUwbbgEf';
 export const BRAZILIAN_FOOD = '4YiTxdGUbobjRADejEAY';
