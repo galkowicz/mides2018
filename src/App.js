@@ -36,7 +36,8 @@ class App extends Component {
 						],
 						translations,
 						options: {
-								renderToStaticMarkup: ReactDOMServer.renderToStaticMarkup
+								renderToStaticMarkup: ReactDOMServer.renderToStaticMarkup,
+								onMissingTranslation: () => '' // remove this to see key of missing translations
 						}
 				});
 
