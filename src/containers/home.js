@@ -25,8 +25,9 @@ class Home extends React.Component {
 
 				return (
 					<React.Fragment>
-							<Translate id="mainItems.home"/>
-							<div className='long-div'>hi</div>
+							<div className='home' >
+									<div className='home__header'><Translate id='mainItems.restaurant'/></div>
+							</div>
 							<Gallery images={images}/>
 					</React.Fragment>
 				);

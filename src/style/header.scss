@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Assistant');
 @import './mixins.scss';
 
-@font-face {
-  font-family: "gl-font";
-  src: url("./GveretLevinAlefAlefAlef-Regular.woff") format('woff');
-}
-
 .fixed-menu.fixed-menu.fixed-menu.fixed-menu {
   background-color: $light-gold;
+}
+
+$background: 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2F2qok0GuWkh96c8sQUBHI_fields.jpg?alt=media&token=790ac195-cd5b-4f04-8adc-3d655fd72bde';
+$height: 80vh;
+
+.header-container {
+  @include parallax($background, $height);
 }
 
 .header {
@@ -42,7 +44,7 @@
     }
 
     @include respond-to(mobile) {
-      top: 8rem;
+      top: 12rem;
       .mides-logo {
         font-size: 12rem;
 
@@ -102,22 +104,24 @@
     .segments {
       display: flex;
       float: right;
-      flex-direction: row;
+      flex-direction: row-reverse;
       width: 100%;
       border: none;
       box-shadow: none;
       text-transform: uppercase;
+      font-family: lulo-clean, sans-serif;
+      margin-left: 50%;
+      margin-right: calc(3em + 1vw);
 
       .segment {
         border-top: none;
         background-color: $light-gold;
-        font-size: 1.4rem;
-        font-weight: 600;
+        font-size: calc(.3em + 1vw);
+        font-weight: 100;
         padding: 0 1.5rem;
-        letter-spacing: 4px;
 
         a {
-          color: black;
+          color: $black;
           transition: .3s;
 
           &:hover {
@@ -160,7 +164,7 @@
           svg {
             position: absolute;
             top: 1rem;
-            left: 40%;
+            left: 32%;
           }
 
           .phone-link {

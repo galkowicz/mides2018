@@ -1,0 +1,34 @@
+@import './mixins.scss';
+
+$background: "https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2Fcmojd2TbeSp71UYKSwOX_homeBackgroundGrey.jpg?alt=media&token=bae1f10e-3aa1-4843-87a1-6cfb0e5ddef5";
+$height: 40vh;
+
+.home {
+  position: relative;
+  @include parallax ($background, $height);
+
+  &__header {
+    position: relative;
+    line-height: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: $light-gold;
+    font-size: 6rem;
+    top: 3rem;
+    font-weight: 900;
+
+    &:lang(en) {
+      font-size: 4rem;
+
+      @include respond-to(mobile) {
+        font-size: 2rem;
+        word-spacing: 100vw;
+        line-height: 30px;
+      }
+    }
+
+    @include respond-to(mobile) {
+      font-size: 3rem;
+    }
+  }
+}

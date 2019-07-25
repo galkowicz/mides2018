@@ -55,18 +55,25 @@ class AppMenu extends React.Component {
 													floating
 													icon={null}
 													onChange={this.onDropdownChange}
-													options={[{key: 'hebrew', text:'עברית', value: 'he'}, {key: 'english', text: 'English', value:'en'}]}
-													trigger={<Icon name='globe' size='large' className='language-icon'/>} />
+													options={[{ key: 'hebrew', text: 'עברית', value: 'he' }, {
+															key: 'english',
+															text: 'English',
+															value: 'en'
+													}]}
+													trigger={<Icon name='globe' size='large' className='language-icon'/>}/>
 										</Menu.Item>
 										<Menu.Item className='header__social'><SocialBanner links={socialLinks}/></Menu.Item>
 										<Menu.Item className='header__menu'><HeaderItems translate={translate}/></Menu.Item>
 								</Container>
 						</Menu>
-						<div className='header__logo'>
-								<div className='mides-logo'><span>מידס</span></div>
-								<div className='mides-sublogo'><span>מסעדה ברזילאית</span></div>
+						<div className='header-container'>
+								<div className='header-overlay'>
+										<div className='header__logo'>
+												<div className='mides-logo'><span>מידס</span></div>
+												<div className='mides-sublogo'><span>מסעדה ברזילאית</span></div>
+										</div>
+								</div>
 						</div>
-						<Image src={backgroundImage} size='massive'/>
 				</React.Fragment>);
 		}
 }

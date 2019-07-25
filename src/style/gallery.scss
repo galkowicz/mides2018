@@ -8,7 +8,8 @@
   &__header.gallery__header.gallery__header {
     text-transform: uppercase;
     color: $light-gold;
-    letter-spacing: 4px;
+    font-size: calc(2em + 1vw);
+    font-family: lulo-clean, sans-serif;
   }
 
   &__images {

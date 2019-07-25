@@ -80,16 +80,13 @@ class App extends Component {
 
 				return (<React.Fragment>
 						<Header key={'header'}/>
-
-						<Container className='body'>
-								<Switch>
-										<Route exact path='/' component={Home}/>
-										<Route path='/about' component={About}/>
-										<Route path={`/menu`}
-										       render={() => (<Menu translate={translate}/>)}
-										/>
-								</Switch>
-						</Container>
+						<Switch>
+								<Route exact path='/' component={Home}/>
+								<Route path='/about' component={About}/>
+								<Route path={`/menu`}
+								       render={() => (<Menu translate={translate}/>)}
+								/>
+						</Switch>
 				</React.Fragment>);
 		}
 }

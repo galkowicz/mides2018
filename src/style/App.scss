@@ -2,12 +2,10 @@
 @import './header.scss';
 @import './foodMenu.scss';
 @import './gallery.scss';
-
-.body {
-  margin-top: 1rem;
-}
+@import './home.scss';
 
 #root {
   background-color: $black;
   padding: 1px;
+  font-family: lulo-clean, sans-serif;
 }

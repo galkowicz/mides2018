@@ -17,23 +17,31 @@ $narrow-tablet: $media-query-narrow-tablet * $unit;
 
 @mixin respond-to($media) {
   @if $media == mobile {
-    @media only screen and (max-width: $mobile) { @content; }
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
   }
   @if $media == mobile-portrait {
-    @media only screen and (max-width: $mobile) and (orientation: portrait) { @content; }
+    @media only screen and (max-width: $mobile) and (orientation: portrait) {
+      @content;
+    }
   }
   @if $media == mobile-landscape {
-    @media only screen and (max-width: $mobile) and (orientation: landscape) { @content; }
-  }
-  @else if $media == desktop {
-    @media only screen and (min-width: $tablet) { @content; }
-  }
-  @else if $media == nodesktop {
-    @media only screen and (max-width: $tablet_minus_1) { @content; }
+    @media only screen and (max-width: $mobile) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media only screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $media == nodesktop {
+    @media only screen and (max-width: $tablet_minus_1) {
+      @content;
+    }
   }
 }
 
-$light-gold: #ae9a64;
+$light-gold: #ad9a65;
 $black: #323232;
 $grey: #848484;
 $logo-orange: #e27d17;
@@ -44,4 +52,27 @@ $logo-orange: #e27d17;
 
 .zero-padding.zero-padding.zero-padding.zero-padding.zero-padding.zero-padding.zero-padding {
   padding: 0 !important;
+}
+
+
+@mixin parallax($img, $height) {
+  height: $height;
+  background-image: url($img);
+  padding-top: 2rem;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @media only screen and (max-device-width: 1366px) {
+    background-attachment: scroll;
+  }
+}
+
+@font-face {
+  font-family: 'gl-font';
+  src: local('gl-font'), url('../fonts/GveretLevinAlefAlefAlef-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'lulo-clean';
+  src: local('lulo-clean'), url('../fonts/lulo-clean.woff') format('woff');
 }
