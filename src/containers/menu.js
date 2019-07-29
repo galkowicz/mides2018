@@ -36,15 +36,17 @@ class Menu extends React.PureComponent {
 				const hotDrinks = translations.hotDrinks && this.createMenuItems(translations.hotDrinks, 'hotDrinks');
 				const beers = translations.beers && this.createMenuItems(translations.beers, 'beers');
 
-				return (<div className='kind-of-black food-menu'>
+				return (<div className='food-menu'>
 						<div className='title-main'><Translate id={'mainItems.menu'}/></div>
 
-						<div className='title-description'><h2 className='text'><Translate id={'mainItems.startersTitle'}/></h2></div>
+						<div className='title-description'><h2 className='text'><Translate id={'mainItems.startersTitle'}/></h2>
+						</div>
 						<div className='subcategory'>
 								{starters && starters.map(item => item)}
 						</div>
 
-						<div className='title-description'><h2 className='text'><Translate id={'mainItems.brazilianTitle'}/></h2></div>
+						<div className='title-description'><h2 className='text'><Translate id={'mainItems.brazilianTitle'}/></h2>
+						</div>
 						<div className='subcategory'>
 
 								{brazilian && brazilian.map(item => item)}
@@ -58,7 +60,8 @@ class Menu extends React.PureComponent {
 
 						</div>
 
-						<div className='title-description'><h2 className='text'><Translate id={'mainItems.fishAndPasta'}/></h2></div>
+						<div className='title-description'><h2 className='text'><Translate id={'mainItems.fishAndPasta'}/></h2>
+						</div>
 						<div className='subcategory'>
 
 								{fish && fish.map(item => item)}

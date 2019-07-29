@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from "react-redux";
 import ReactDOMServer from 'react-dom/server';
-import { Container } from 'semantic-ui-react';
 import Home from './containers/home';
 import Menu from './containers/menu';
-import About from './containers/about';
 import Header from './components/header';
 import './style/App.css';
 import { getLanguages, getTranslate } from "react-localize-redux/lib/index";
@@ -82,7 +80,6 @@ class App extends Component {
 						<Header key={'header'}/>
 						<Switch>
 								<Route exact path='/' component={Home}/>
-								<Route path='/about' component={About}/>
 								<Route path={`/menu`}
 								       render={() => (<Menu translate={translate}/>)}
 								/>

@@ -6,7 +6,7 @@
 }
 
 $background: 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2F2qok0GuWkh96c8sQUBHI_fields.jpg?alt=media&token=790ac195-cd5b-4f04-8adc-3d655fd72bde';
-$height: 80vh;
+$height: 100vh;
 
 .header-container {
   @include parallax($background, $height);
@@ -19,7 +19,7 @@ $height: 80vh;
     border-left: none !important;
     position: absolute;
     font-family: gl-font, serif;
-    top: 19rem;
+    top: 27rem;
     z-index: 1;
     left: 50%;
     transform: translateX(-50%);
@@ -174,8 +174,8 @@ $height: 80vh;
 
         &.transition.visible {
           border: solid $light-gold;
-          max-height: 290px;
-          height: 290px;
+          max-height: 302px;
+          height: 302px;
         }
       }
 

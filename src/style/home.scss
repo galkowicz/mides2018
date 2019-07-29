@@ -18,7 +18,7 @@ $height: 40vh;
     font-weight: 900;
 
     &:lang(en) {
-      font-size: 4rem;
+      font-size: 3em;
 
       @include respond-to(mobile) {
         font-size: 2rem;

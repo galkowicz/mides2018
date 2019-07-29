@@ -63,7 +63,7 @@ const Gallery = (props) => {
 
 		const defaultStyle = {
 				transition: `opacity ${duration}ms ease-in-out`,
-				opacity: 1,
+				opacity: 0,
 		};
 
 		const transitionStyles = {

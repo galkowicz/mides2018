@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Translate, getActiveLanguage, setActiveLanguage, getLanguages } from 'react-localize-redux';
@@ -21,11 +21,19 @@ class Home extends React.Component {
 				const tempUrl = 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2FtYhfxgg5h4mKGo1DiYwK_11.jpg?alt=media&token=ad5d38f9-b07d-4e83-ba62-dd1b45ac26a4';
 				const tempUrl2 = 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2FBB5wQ4ve13TguevpMlB0_tea-2975184_1280.png?alt=media&token=8b584d87-817a-4ea8-ac49-a9d90e7145f5';
 				const tempUrl3 = 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2Fa2RRX94b03BqvaFyeEir_9.jpg?alt=media&token=6e531de3-c11e-4e3d-bfe9-b037a1883c72';
-				const images = [tempUrl, tempUrl3, tempUrl, tempUrl2, tempUrl3, tempUrl2, tempUrl, tempUrl2, tempUrl3, tempUrl2, tempUrl, tempUrl2];
+				const images = [tempUrl, tempUrl3, tempUrl, tempUrl2, tempUrl3, tempUrl2, tempUrl, tempUrl2, tempUrl3, tempUrl2, tempUrl, tempUrl2, tempUrl2, tempUrl3, tempUrl2, tempUrl, tempUrl2];
 
 				return (
 					<React.Fragment>
-							<div className='home' >
+							<div className='header-container'>
+									<div className='header-overlay'>
+											<div className='header__logo'>
+													<div className='mides-logo'><span>מידס</span></div>
+													<div className='mides-sublogo'><span>מסעדה ברזילאית</span></div>
+											</div>
+									</div>
+							</div>
+							<div className='home' id='about'>
 									<div className='home__header'><Translate id='mainItems.restaurant'/></div>
 							</div>
 							<Gallery images={images}/>

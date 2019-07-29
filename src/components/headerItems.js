@@ -14,26 +14,27 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 				<Icon name='bars' size='big'/></div>;
 
 		const scrollEve = (el) => {
-				window.scrollTo(0, 0);
-				setTimeout(() => {
-						const headerOffset = 45;
-						const elementPosition = el.getBoundingClientRect().top;
-						const offsetPosition = elementPosition - headerOffset;
+				el.scrollIntoView({
+						block: 'start',
+						inline: 'nearest',
+						behavior: 'smooth'
+				});
+		};
 
-						window.scrollTo({
-								top: offsetPosition,
-								behavior: 'smooth'
-						});
-
-				}, 100);
+		const scrollTop = () => {
+				window.scrollTo({
+						top: 0,
+						behavior: 'smooth'
+				});
 		};
 
 		return (
 			<Menu.Menu>
 					<Default>
 							<Segment.Group>
-									<Segment><Link to='/'>{translate('mainItems.home')}</Link></Segment>
-									<Segment><Link to='/about'>{translate('mainItems.about')}</Link></Segment>
+									<Segment><Link to='/' onClick={scrollTop}>{translate('mainItems.home')}</Link></Segment>
+									<Segment><HashLink smooth scroll={scrollEve}
+									                   to='/#about'>{translate('mainItems.about')}</HashLink></Segment>
 									<Segment><Link to='/menu'>{translate('mainItems.menu')}</Link></Segment>
 									<Segment><HashLink smooth scroll={scrollEve}
 									                   to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Segment>
@@ -43,20 +44,27 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 							<Dropdown item trigger={dropdownTriggerElement} icon={null}>
 									<Dropdown.Menu button='true' item='true'>
 											<Dropdown.Item className='menu__item'
-											               onClick={() => history.push('/')}> {translate('mainItems.home')} </Dropdown.Item>
-											<Dropdown.Item className='menu__item'
-											               onClick={() => history.push('/about')}> {translate('mainItems.about')} </Dropdown.Item>
+											               onClick={() => {
+													               history.push('/');
+													               scrollTop()
+											               }}> {translate('mainItems.home')} </Dropdown.Item>
+											<Dropdown.Item className='menu__item zero-padding'><HashLink smooth
+											                                                             scroll={scrollEve}
+											                                                             to='/#about'>{translate('mainItems.about')}</HashLink>
+											</Dropdown.Item>
 											<Dropdown.Item className='menu__item'
 											               onClick={() => history.push('/menu')}> {translate('mainItems.menu')} </Dropdown.Item>
-											<Dropdown.Item className='menu__item zero-padding' > <HashLink smooth scroll={scrollEve}
-											                                                 to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Dropdown.Item>
-											<Dropdown.Item className='menu__item zero-padding'><a href='https://waze.com/ul/hsv8es2dhq' target='_blank'
-											                                         rel='noopener noreferrer'
-											                                         className='waze-link'>WAZE</a> <FontAwesomeIcon
-												className='social-banner__icon' icon={faWaze}/></Dropdown.Item>
+											<Dropdown.Item className='menu__item zero-padding'> <HashLink smooth scroll={scrollEve}
+											                                                              to='/#gallery'>{translate('mainItems.gallery')}</HashLink></Dropdown.Item>
+											<Dropdown.Item className='menu__item zero-padding'><a href='https://waze.com/ul/hsv8es2dhq'
+											                                                      target='_blank'
+											                                                      rel='noopener noreferrer'
+											                                                      className='waze-link'>WAZE</a>
+													<FontAwesomeIcon
+														className='social-banner__icon' icon={faWaze}/></Dropdown.Item>
 											<Dropdown.Item className='menu__item zero-padding'><a href='tel:086803441' target='_blank'
-											                                         rel='noopener noreferrer'
-											                                         className='phone-link'>{translate('mainItems.call')}</a>
+											                                                      rel='noopener noreferrer'
+											                                                      className='phone-link'>{translate('mainItems.call')}</a>
 													<FontAwesomeIcon
 														className='social-banner__icon' icon={faPhone}/>
 											</Dropdown.Item>
