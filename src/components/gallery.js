@@ -11,6 +11,8 @@ const Gallery = (props) => {
 		const [isImageOpen, setImageState] = useState(false);
 		const [inProp, setInProp] = useState(true);
 		const [selectedImage, setSelectedImage] = useState(-1);
+		const [imagesToShow, setImagesToShow] = useState(isMobile() ? 4 : 10);
+		const fadeAnimationDuration = 400;
 
 		useEffect(() => {
 				const numberMatch = props.location.hash.match(/\d/);
@@ -59,10 +61,8 @@ const Gallery = (props) => {
 				return document.documentElement.clientWidth < DESKTOP_MIN_WIDTH;
 		}
 
-		const duration = 400;
-
 		const defaultStyle = {
-				transition: `opacity ${duration}ms ease-in-out`,
+				transition: `opacity ${fadeAnimationDuration}ms ease-in-out`,
 				opacity: 0,
 		};
 
@@ -71,18 +71,29 @@ const Gallery = (props) => {
 				entered: { opacity: 1 },
 		};
 
-
 		const { images } = props;
+		const isAllImagesLoaded = imagesToShow >= images.length;
+		const imagesElements = () => {
+				let elements = [];
+
+				for (let i = 0; i < imagesToShow; i++) {
+						elements.push(<div onClick={() => handleImageClick(i)} key={i} className='gallery__images__img'><Image
+							src={images[i]}/>
+						</div>);
+				}
+
+				return elements;
+		};
 
 		return (
 			<div id='gallery' className='gallery'>
 					<Header as='h1' textAlign='center' className='gallery__header'><Translate
 						id='mainItems.gallery'/></Header>
-					<div className='gallery__images'>{images.map((imgUrl, index) => {
-							return <div onClick={() => handleImageClick(index)} key={index} className='gallery__images__img'><Image
-								src={imgUrl}/>
-							</div>
-					})}</div>
+
+					<div className='gallery__images'>{imagesElements()}</div>
+
+					{!isAllImagesLoaded && <div className='gallery__plus' onClick={() => setImagesToShow(imagesToShow + 10)}><Icon
+						name='plus' size='big'/></div>}
 
 					<div className={'gallery__fullscreen ' + (isImageOpen ? 'show' : '')}>
 							<div className='gallery__fullscreen__header'>
@@ -99,7 +110,7 @@ const Gallery = (props) => {
 											<Transition in={inProp} timeout={{
 													appear: 0,
 													enter: 0,
-													exit: duration,
+													exit: fadeAnimationDuration,
 											}} key={selectedImage}>
 													{state => (
 														<div style={{
