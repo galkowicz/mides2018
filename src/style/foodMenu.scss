@@ -8,9 +8,13 @@
   width: auto;
   color: $light-gold;
   letter-spacing: 1px;
-  padding: 1.5rem;
+  padding: 2.5rem;
   position: relative;
   top: 4em;
+
+  @include respond-to(nodesktop) {
+    padding: 1.5rem;
+  }
 
   .title-main {
     font-size: 5rem;
@@ -23,17 +27,11 @@
     margin-top: 4rem;
 
     .title {
-      float: right;
+      display: inline-block;
       width: 94%;
       overflow: hidden;
       white-space: nowrap;
       text-transform: capitalize;
-
-      .price {
-        float: right;
-        width: 10rem;
-        overflow: hidden;
-      }
 
       :after {
         content: '....................................................................................................................................................................................................................................................................';
@@ -47,10 +45,28 @@
       }
 
       @include respond-to(mobile) {
-        width: 87%;
+        width: 84%;
         &__text {
           font-size: 1rem;
         }
+      }
+    }
+
+    .price {
+      display: inline-block;
+      position: relative;
+      top: -7px;
+      overflow: hidden;
+
+      @include respond-to(nodesktop) {
+        top: -2px;
+      }
+    }
+
+    .price:lang(en) {
+      top: 6px;
+      @include respond-to(mobile) {
+        top: -2px;
       }
     }
 
