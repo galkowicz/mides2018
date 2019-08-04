@@ -1,0 +1,50 @@
+@import './mixins.scss';
+
+.about {
+
+  padding: 7em 0;
+  @include respond-to(mobile) {
+    padding: 7em 0;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 6em;
+    text-align: center;
+    justify-content: center;
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20em;
+      padding: 0 13em 3em;
+
+      &__number {
+        color: white;
+        padding: 1em;
+        border-bottom: 1px solid $light-gold;
+        width: 6em;
+        font-size: 1.5em;
+      }
+
+      &__title {
+        color: $light-gold;
+        font-size: 2em;
+        letter-spacing: 3px;
+        line-height: 1em;
+        text-transform: uppercase;
+        width: 11em;
+
+      }
+
+      &__subtitle {
+        color: $light-gold;
+        width: 20em;
+      }
+    }
+  }
+
+}

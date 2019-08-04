@@ -67,6 +67,10 @@ $logo-orange: #e27d17;
   }
 }
 
+.extra-bold {
+  text-shadow: 0 1px, 1px 0, 1px 1px;
+}
+
 @font-face {
   font-family: 'gl-font';
   src: local('gl-font'), url('../fonts/GveretLevinAlefAlefAlef-Regular.woff') format('woff');

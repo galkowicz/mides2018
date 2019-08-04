@@ -1,8 +1,10 @@
 @import './mixins.scss';
+
 @import './header.scss';
 @import './foodMenu.scss';
 @import './gallery.scss';
 @import './home.scss';
+@import './about.scss';
 
 #root {
   background-color: $black;

@@ -1,7 +1,7 @@
 @import './mixins.scss';
 
 $background: "https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2Fcmojd2TbeSp71UYKSwOX_homeBackgroundGrey.jpg?alt=media&token=bae1f10e-3aa1-4843-87a1-6cfb0e5ddef5";
-$height: 40vh;
+$height: 100%;
 
 .home {
   position: relative;
@@ -14,8 +14,11 @@ $height: 40vh;
     text-align: center;
     color: $light-gold;
     font-size: 6rem;
-    top: 3rem;
+    top: .2em;
     font-weight: 900;
+    width: 100%;
+    height: 1em;
+    padding-bottom: 2em;
 
     &:lang(en) {
       font-size: 3em;
@@ -28,6 +31,7 @@ $height: 40vh;
     }
 
     @include respond-to(mobile) {
+      top: 0;
       font-size: 3rem;
     }
   }

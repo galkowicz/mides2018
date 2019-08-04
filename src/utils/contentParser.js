@@ -18,3 +18,25 @@ export function parseMenuContent(rawContent) {
 
 		return parsedContent;
 }
+
+export function parseAboutContent(rawContent) {
+		const { firstAbout, secondAbout, thirdAbout } = rawContent;
+
+		return {
+				about:
+					{
+							firstAbout: {
+									title: [firstAbout.hebrew.title, firstAbout.english.title],
+									subtitle: [firstAbout.hebrew.subtitle, firstAbout.english.subtitle]
+							},
+							secondAbout: {
+									title: [secondAbout.hebrew.title, secondAbout.english.title],
+									subtitle: [secondAbout.hebrew.subtitle, secondAbout.english.subtitle]
+							},
+							thirdAbout: {
+									title: [thirdAbout.hebrew.title, thirdAbout.english.title],
+									subtitle: [thirdAbout.hebrew.subtitle, thirdAbout.english.subtitle]
+							}
+					}
+		};
+}
