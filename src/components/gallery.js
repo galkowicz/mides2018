@@ -76,7 +76,7 @@ const Gallery = (props) => {
 		const imagesElements = () => {
 				let elements = [];
 
-				for (let i = 0; i < imagesToShow; i++) {
+				for (let i = 0; i < Math.min(imagesToShow, images.length); i++) {
 						elements.push(<div onClick={() => handleImageClick(i)} key={i} className='gallery__images__img'><Image
 							src={images[i]}/>
 						</div>);

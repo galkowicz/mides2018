@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Translate, getActiveLanguage, setActiveLanguage, getLanguages, withLocalize } from 'react-localize-redux';
+import { getActiveLanguage, setActiveLanguage, getLanguages, withLocalize } from 'react-localize-redux';
 import Gallery from '../components/gallery';
 import flamelink from '../utils/flamelinkApp';
 import translations, { getFirebaseContent } from '../translations';
@@ -12,12 +12,13 @@ import { setTranslation } from '../reducers/translationsReducer';
 class Home extends React.Component {
 		constructor(props) {
 				super(props);
-				this.state = {images: [] };
+				this.state = { images: [] };
 		}
 
 		componentDidMount() {
-				flamelink.storage.getFiles({ folderName: 'gallery images' })
-					.then(files => this.setState({images: this.getImagesUrl(files)}));
+				flamelink.content.get({ schemaKey: 'galleryImages', populate: true }).then((response) => {
+						response && this.setState({ images: this.getImagesUrl(response.imageDeck) });
+				});
 
 				getFirebaseContent('about').then((content) => {
 						const parsedAboutContent = parseAboutContent(content);
@@ -26,17 +27,14 @@ class Home extends React.Component {
 				});
 		}
 
-		getImagesUrl(files = {}) {
-				console.log('images', files);
-				return Object.values(files).map((file) => file.folderId.path);
+		getImagesUrl(images) {
+				return images.map((image) => {
+						return image.image[0].url;
+				});
 		}
 
 		render() {
-				// TODO replace mock to real data
-				// const tempUrl = 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2FtYhfxgg5h4mKGo1DiYwK_11.jpg?alt=media&token=ad5d38f9-b07d-4e83-ba62-dd1b45ac26a4';
-				// const tempUrl2 = 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2FBB5wQ4ve13TguevpMlB0_tea-2975184_1280.png?alt=media&token=8b584d87-817a-4ea8-ac49-a9d90e7145f5';
-				// const tempUrl3 = 'https://firebasestorage.googleapis.com/v0/b/mides-cms.appspot.com/o/flamelink%2Fmedia%2Fa2RRX94b03BqvaFyeEir_9.jpg?alt=media&token=6e531de3-c11e-4e3d-bfe9-b037a1883c72';
-				const {images} = this.state;
+				const { images } = this.state;
 
 				return (
 					<React.Fragment>
@@ -49,7 +47,7 @@ class Home extends React.Component {
 									</div>
 							</div>
 							<div className='home' id='about'>
-									<About />
+									<About/>
 							</div>
 							<Gallery images={images}/>
 					</React.Fragment>

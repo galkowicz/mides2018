@@ -3,6 +3,7 @@ import flamelink from 'flamelink/app';
 import 'flamelink/content';
 import 'firebase/database';
 import 'flamelink/storage';
+import 'firebase/storage';
 
 const app = flamelink({
 		firebaseApp,
