@@ -62,7 +62,7 @@ const HeaderItems = withRouter(({ history, ...props }) => {
 											                                                      className='waze-link'>WAZE</a>
 													<FontAwesomeIcon
 														className='social-banner__icon' icon={faWaze}/></Dropdown.Item>
-											<Dropdown.Item className='menu__item zero-padding'><a href='tel:086803441' target='_blank'
+											<Dropdown.Item className='menu__item zero-padding'><a href='tel:086803441'
 											                                                      rel='noopener noreferrer'
 											                                                      className='phone-link'>{translate('mainItems.call')}</a>
 													<FontAwesomeIcon
