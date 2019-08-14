@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/mides/static/css/main.3de53a61.chunk.css",
+    "main.js": "/mides/static/js/main.56e0e0ed.chunk.js",
+    "main.js.map": "/mides/static/js/main.56e0e0ed.chunk.js.map",
+    "runtime~main.js": "/mides/static/js/runtime~main.90f346e9.js",
+    "runtime~main.js.map": "/mides/static/js/runtime~main.90f346e9.js.map",
+    "static/css/2.fce27db8.chunk.css": "/mides/static/css/2.fce27db8.chunk.css",
+    "static/js/2.59467bc7.chunk.js": "/mides/static/js/2.59467bc7.chunk.js",
+    "static/js/2.59467bc7.chunk.js.map": "/mides/static/js/2.59467bc7.chunk.js.map",
+    "index.html": "/mides/index.html",
+    "precache-manifest.9d6f3edbd14a9ecda3e106483d234d55.js": "/mides/precache-manifest.9d6f3edbd14a9ecda3e106483d234d55.js",
+    "service-worker.js": "/mides/service-worker.js",
+    "static/css/2.fce27db8.chunk.css.map": "/mides/static/css/2.fce27db8.chunk.css.map",
+    "static/css/main.3de53a61.chunk.css.map": "/mides/static/css/main.3de53a61.chunk.css.map",
+    "static/media/App.css": "/mides/static/media/lulo-clean.289f3567.woff",
+    "static/media/semantic.min.css": "/mides/static/media/outline-icons.ef60a4f6.woff"
+  }
+}
