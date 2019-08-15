@@ -62,7 +62,7 @@ $logo-orange: #e27d17;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  @media only screen and (max-device-width: 1366px) {
+  @include respond-to(nodesktop) {
     background-attachment: scroll;
   }
 }
