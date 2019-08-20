@@ -10,8 +10,6 @@ import { getLanguages, getTranslate } from "react-localize-redux/lib/index";
 import { withLocalize } from 'react-localize-redux';
 import translations, { getFirebaseContent } from './translations/index';
 import { parseMenuContent } from './utils/contentParser';
-import { bindActionCreators } from 'redux';
-import { setTranslation } from "./reducers/translationsReducer";
 import {
 		STARTERS_F00D,
 		BRAZILIAN_FOOD,
@@ -66,7 +64,6 @@ class App extends Component {
 									beers
 							};
 							Object.assign(translations, parsedTranslations);
-							this.props.setTranslation(parsedTranslations);
 							this.props.addTranslation(translations);
 					}).catch((error) => {
 						console.error(error);
@@ -81,7 +78,7 @@ class App extends Component {
 						<Switch>
 								<Route exact path='/' component={Home}/>
 								<Route path={`/menu`}
-								       render={() => (<Menu translate={translate}/>)}
+								       render={() => (<Menu translate={translate} translations={translations}/>)}
 								/>
 						</Switch>
 				</React.Fragment>);
@@ -94,8 +91,4 @@ const mapStateToProps = state => ({
 		router: state.router
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-		setTranslation
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(withLocalize(App));
+export default connect(mapStateToProps)(withLocalize(App));

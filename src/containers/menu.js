@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import MenuItem from '../components/menuItem';
 import { Translate } from 'react-localize-redux';
 
@@ -94,10 +93,4 @@ class Menu extends React.PureComponent {
 		}
 }
 
-const mapStateToProps = state => ({
-		translations: state.translations
-});
-
-export default connect(
-	mapStateToProps
-)(Menu);
+export default Menu;

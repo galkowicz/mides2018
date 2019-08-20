@@ -1,13 +1,11 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getActiveLanguage, setActiveLanguage, getLanguages, withLocalize } from 'react-localize-redux';
+import { getActiveLanguage, getLanguages, withLocalize } from 'react-localize-redux';
 import Gallery from '../components/gallery';
 import flamelink from '../utils/flamelinkApp';
 import translations, { getFirebaseContent } from '../translations';
 import { parseAboutContent } from '../utils/contentParser';
 import About from '../components/about';
-import { setTranslation } from '../reducers/translationsReducer';
 
 class Home extends React.Component {
 		constructor(props) {
@@ -60,11 +58,6 @@ const mapStateToProps = state => ({
 		languages: getLanguages(state.localize)
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-		setActiveLanguage, setTranslation
-}, dispatch);
-
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+	mapStateToProps
 )(withLocalize(Home));
